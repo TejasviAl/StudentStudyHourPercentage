@@ -12,13 +12,13 @@ Y = data[['Scores']]
 X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=0.2, random_state=0)
 
 model = LinearRegression()
-model.fit(X_train, Y_Train)
+model.fit(X_train, Y_train)
 
-Y_pred = model.predict(X_team)
+Y_pred = model.predict(X_test)  # Changed X_team to X_test
 
 print('Mean Absolute Error:', mean_absolute_error(Y_test, Y_pred))
 print('R2 Score:', r2_score(Y_test, Y_pred))
 
-hours = [[9,25]]
+hours = [[9.25]]  # Corrected the format to match the input shape
 predicted_score = model.predict(hours)
 print(f'Predicted score for 9.25 hours/day: {predicted_score[0]}')
